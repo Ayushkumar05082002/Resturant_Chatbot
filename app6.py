@@ -307,7 +307,7 @@ def update_availability(date, time, number_of_people):
         total_people = 0
     
     total_people += number_of_people
-    
+    #hello 
     # Assuming the restaurant can accommodate 50 people at a time
     max_capacity = 50
     available_slots = max_capacity - total_people
