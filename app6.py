@@ -5,14 +5,14 @@ import groq
 import pytesseract
 from PIL import Image
 from dotenv import load_dotenv
-from langchain_community.vectorstores import FAISS  # Corrected import statement
-from langchain_huggingface import HuggingFaceEmbeddings  # Corrected import statement
+from langchain_community.vectorstores import FAISS  
+from langchain_huggingface import HuggingFaceEmbeddings  
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 from atomic_agents.agents.base_agent import BaseAgent, BaseAgentConfig, BaseAgentInputSchema
-import asyncio  # Added import for asyncio
-from datetime import datetime, timedelta  # Added import for datetime
-import re  # Add this import at the top with other imports
+import asyncio  
+from datetime import datetime, timedelta  
+import re  
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
@@ -219,14 +219,14 @@ menu_agent = BaseAgent(
 )
 
 # Create Reservation Agent
-# reservation_agent = BaseAgent(
-#     config=BaseAgentConfig(
-#         client=client,
-#         model="llama3-8b-8192",
-#         temperature=0.1,
-#         system_prompt="You are a restaurant booking assistant. Help customers with table reservations, availability, and booking details."
-#     )
-# )
+reservation_agent = BaseAgent(
+    config=BaseAgentConfig(
+        client=client,
+        model="llama3-8b-8192",
+        temperature=0.1,
+        system_prompt="You are a restaurant booking assistant. Help customers with table reservations, availability, and booking details."
+    )
+)
 
 # Function to handle reservation queries
 def handle_reservation_query(user_input):
@@ -307,7 +307,7 @@ def update_availability(date, time, number_of_people):
         total_people = 0
     
     total_people += number_of_people
-    #hello 
+    
     # Assuming the restaurant can accommodate 50 people at a time
     max_capacity = 50
     available_slots = max_capacity - total_people
@@ -807,3 +807,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# --- End of app6.py ---
